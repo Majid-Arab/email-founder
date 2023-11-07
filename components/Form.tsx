@@ -1,15 +1,23 @@
 "use client";
 
-import { TextInput, Textarea, SimpleGrid, Group, Title, Button } from '@mantine/core';
-import { useForm } from '@mantine/form';
+import {
+  TextInput,
+  Textarea,
+  SimpleGrid,
+  Group,
+  Title,
+  Button,
+} from "@mantine/core";
+import { useForm } from "@mantine/form";
+import FlagSelect from "./FlagSelect";
 
 export function HomeForm() {
   const form = useForm({
     initialValues: {
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
     },
     validate: {
       name: (value) => value.trim().length < 2,
@@ -23,27 +31,28 @@ export function HomeForm() {
       <Title
         order={2}
         size="h1"
-        style={{ fontFamily: 'Greycliff CF, var(--mantine-font-family)' }}
+        style={{ fontFamily: "Greycliff CF, var(--mantine-font-family)" }}
         fw={900}
         ta="center"
       >
         Get in touch
       </Title>
 
+        <FlagSelect />
       <SimpleGrid cols={{ base: 1, sm: 2 }} mt="xl">
         <TextInput
           label="Name"
           placeholder="Your name"
           name="name"
           variant="filled"
-          {...form.getInputProps('name')}
+          {...form.getInputProps("name")}
         />
         <TextInput
           label="Email"
           placeholder="Your email"
           name="email"
           variant="filled"
-          {...form.getInputProps('email')}
+          {...form.getInputProps("email")}
         />
       </SimpleGrid>
 
@@ -53,7 +62,7 @@ export function HomeForm() {
         mt="md"
         name="subject"
         variant="filled"
-        {...form.getInputProps('subject')}
+        {...form.getInputProps("subject")}
       />
       <Textarea
         mt="md"
@@ -64,7 +73,7 @@ export function HomeForm() {
         autosize
         name="message"
         variant="filled"
-        {...form.getInputProps('message')}
+        {...form.getInputProps("message")}
       />
 
       <Group justify="center" mt="xl">
